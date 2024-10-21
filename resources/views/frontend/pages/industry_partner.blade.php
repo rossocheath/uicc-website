@@ -1,0 +1,186 @@
+@extends('frontend.layouts.master')
+@section('title', 'Industry Partner')
+
+@section('content')
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @if(count($banner)<1)
+                    <div class="carousel-item active">
+                        <img class="w-100" src="carousel_uicc.jpg" alt="Image">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                @endif
+                @foreach($banner as $banner)
+                    @if ($loop->index == 0)
+                        <div class="carousel-item active">
+                            <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7 pt-5">
+                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
+                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
+                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
+                                                    Learn More
+                                                    <div
+                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7 pt-5">
+                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
+                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
+                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
+                                                    Learn More
+                                                    <div
+                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="carousel-item">
+                            <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="container">
+                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7 pt-5">
+                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
+                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
+                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
+                                                    Learn More
+                                                    <div
+                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7 pt-5">
+                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
+                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
+                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
+                                                    Learn More
+                                                    <div
+                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            @if(count($banner_carousel_count) >1)
+                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            @endif
+        </div>
+    </div>
+    <!-- Carousel End -->
+    <!-- ======= Industry Partner Section ======= -->
+    <section id="industry-partners" class="section-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header" style="text-align: center">
+                <hr>
+                <h1>Our Industry Partners</h1>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dere santome nida.
+                </p>
+            </div>
+
+            <div class="row g-0 industry-partners-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
+
+                <div class="col-lg-3 col-md-4 col-xs-6 ">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="client-logo">
+                        <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <!-- ======= End Industry Partner Section ======= -->
+
+
+@endsection
