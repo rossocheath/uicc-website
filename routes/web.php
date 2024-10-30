@@ -47,14 +47,12 @@ Route::group(['web'], function () { // For index only
     Route::get('/publication', [BlogController::class, 'index'])->name('publication');
     Route::get('/about_us', [AboutController::class, 'index'])->name('about_us');
     Route::get('/contact_us', [ContactController::class, 'index'])->name('contact_us');
+    Route::get('/publication-detail/{id}', [BlogController::class, 'show'])->name('publication-show');
 });
 
 //Page Detail
 Route::get('/career-detail', function () {
     return view('frontend.pages.pages_detail.career_detail');
-});
-Route::get('/blog-detail', function () {
-    return view('frontend.pages.pages_detail.blog_detail');
 });
 
 

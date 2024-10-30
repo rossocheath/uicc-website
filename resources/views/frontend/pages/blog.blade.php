@@ -26,13 +26,7 @@
                                             <div class="col-lg-7 pt-5">
                                                 <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
                                                 <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    Read More
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
+                
                                             </div>
                                         </div>
                                     @endif
@@ -135,7 +129,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="blog-single.html">{{$blog->title_en}}</a>
+                            <a href="{{route('publication-show',$blog->id)}}">{{$blog->title_en}}</a>
                         </h2>
 
                         <div class="entry-meta">
@@ -149,7 +143,8 @@
 
                         <div class="entry-content">
                             <p>
-                                {{strip_tags($blog->description_en)}}
+                                {{-- {!! str($blog->description_en)->sanitizeHtml() !!} --}}
+                                {!! \Illuminate\Support\Str::limit(strip_tags($blog->description_en, '<p>'), 200) !!}
                             </p>
                             <div class="read-more">
                                 <a href="">{{__('publication.read_more')}}</a>
@@ -166,7 +161,8 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="blog-single.html">{{$blog->title_kh}}</a>
+                            <a href="blog-single.html">
+                                {{$blog->title_kh}}</a>
                         </h2>
 
                         <div class="entry-meta">
