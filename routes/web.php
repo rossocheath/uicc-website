@@ -48,6 +48,7 @@ Route::group(['web'], function () { // For index only
     Route::get('/about_us', [AboutController::class, 'index'])->name('about_us');
     Route::get('/contact_us', [ContactController::class, 'index'])->name('contact_us');
     Route::get('/publication-detail/{id}', [BlogController::class, 'show'])->name('publication-show');
+    Route::get('/event-detail/{id}', [EventController::class, 'show'])->name('event-show');
 });
 
 //Page Detail

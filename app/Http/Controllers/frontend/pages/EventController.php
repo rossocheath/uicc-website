@@ -16,4 +16,8 @@ class EventController extends Controller
         $events = Event::orderBy('id', 'desc')->paginate(4);
         return view('frontend.pages.event',compact('banner','banner_carousel_count','events'));
     }
+    public function show($id){
+        $events = Event::findOrFail($id);
+        return view('frontend.pages.pages_detail.event_detail', compact('events'));
+    }
 }

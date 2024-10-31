@@ -76,9 +76,9 @@
                 <a href="/" class="nav-item nav-link {{ (request()->is('/')) ? 'active' : '' }}">{{__('nav.home')}}</a>
                 <a href="/service" class="nav-item nav-link {{ (request()->is('service')) ? 'active' : '' }}">{{__('nav.service')}}</a>
                 <a href="/industry_partner" class="nav-item nav-link {{ (request()->is('industry_partner')) ? 'active' : '' }}">{{__('nav.partner')}}</a>
-                <a href="/career" class="nav-item nav-link {{ (request()->is('career')) ? 'active' : '' }}">{{__('nav.career')}}</a>
-                <a href="/event" class="nav-item nav-link {{ (request()->is('event')) ? 'active' : '' }}">{{__('nav.event')}}</a>
-                <a href="/publication" class="nav-item nav-link {{ (request()->is('publication')) ? 'active' : '' }}">{{__('nav.publication')}}</a>
+                <a href="/career" class="nav-item nav-link {{ (request()->is('career*')) ? 'active' : '' }}">{{__('nav.career')}}</a>
+                <a href="/event" class="nav-item nav-link {{ (request()->is('event*')) ? 'active' : '' }}">{{__('nav.event')}}</a>
+                <a href="/publication" class="nav-item nav-link {{ (request()->is('publication*')) ? 'active' : '' }}">{{__('nav.publication')}}</a>
                 <a href="/about_us" class="nav-item nav-link {{ (request()->is('about_us')) ? 'active' : '' }}">{{__('nav.about')}}</a>
                 <a href="/contact_us" class="nav-item nav-link {{ (request()->is('contact_us')) ? 'active' : '' }}">{{__('nav.contact')}}</a>
 
