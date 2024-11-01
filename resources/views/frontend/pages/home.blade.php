@@ -97,50 +97,88 @@
         </div>
     </div>
     <!-- Carousel End -->
+
+    <!-- ======= Event Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-in">{{__('home.event')}}</h2>
+                <hr>
+                <p data-aos="fade-in">{{__('home.body_event')}}</p>
+            </div>
+
+            <div class="row">
+                @foreach($event as $event)
+                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
+                        <div class="col-lg-6 col-xl-4 col-md-6 d-flex" data-aos="fade-right">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('storage/'. $event->image)}}" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="">{{$event->title_en}}</a></h5>
+                                    <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_en, '<p>'), 60) !!}</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                            <div class="col-lg-6 col-xl-4 col-md-6 d-flex" data-aos="fade-right">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{asset('storage/'. $event->image)}}" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="">{{$event->title_kh}}</a></h5>
+                                        <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_kh, '<p>'), 60) !!}</a>
+                                    </div>
+                                </div>
+                            </div>
+                    @endif
+                @endforeach
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
         <div class="container">
             <div class="section-title">
                 <h2 data-aos="fade-in">{{__('home.service')}}</h2>
                 <hr>
-                <p data-aos="fade-in">{{__('home.body')}}</p>
+                <p data-aos="fade-in">{{__('home.body_service')}}</p>
             </div>
 
             <div class="row">
-                @if(Config::get('languages')[App::getLocale()]['display']==='English')
-                    @foreach($service_en as $service_en)
+                @foreach($service as $service)
+                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
                         <div class="col-lg-6 col-xl-4 col-md-6 d-flex" data-aos="fade-right">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('storage/'. $service_en->image)}}" alt="...">
+                                    <img src="{{asset('storage/'. $service->image)}}" alt="...">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><a href="">{{$service_en->name_en}}</a></h5>
-                                    <a class="card-text">{{strip_tags($service_en->detail_en)}}</a>
-                                    <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a>
-                                    </div>
+                                    <h5 class="card-title"><a href="">{{$service->name_en}}</a></h5>
+                                    <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_en, '<p>'), 60) !!}</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                @endif
-                @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
-                    @foreach($service_kh as $service_kh)
-                        <div class="col-lg-6 col-xl-4 col-md-6 d-flex" data-aos="fade-right">
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('storage/'. $service_kh->image)}}" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><a href="">{{$service_kh->name_kh}}</a></h5>
-                                    <a class="card-text">{{strip_tags($service_kh->detail_kh)}}</a>
-                                    <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a>
+                    @endif
+                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                            <div class="col-lg-6 col-xl-4 col-md-6 d-flex" data-aos="fade-right">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{asset('storage/'. $service->image)}}" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="">{{$service->name_kh}}</a></h5>
+                                        <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_kh, '<p>'), 60) !!}</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                @endif
+                    @endif
+                @endforeach
             </div>
 
         </div>
@@ -158,26 +196,18 @@
 
             <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/client-1.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="assets/img/client-2.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="assets/img/client-3.png" class="img-fluid"
-                                                   alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/client-4.png" class="img-fluid"
-                                                   alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/client-5.png" class="img-fluid"
-                                                   alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/client-6.png" class="img-fluid"
-                                                   alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/client-7.png" class="img-fluid"
-                                                   alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/client-8.png" class="img-fluid"
-                                                   alt=""></div>
+                    @foreach ($partners as $partners)
+                        @if($partners->count() < 3)
+                                <div class="swiper-slide"><a href="{{$partners->link}}"><img src="{{asset('storage/'. $partners->image)}}" class="img-fluid" alt=""></a></div>
+                                <div class="swiper-slide"><a href="{{$partners->link}}"><img src="{{asset('storage/'. $partners->image)}}" class="img-fluid" alt=""></a></div>
+                                <div class="swiper-slide"><a href="{{$partners->link}}"><img src="{{asset('storage/'. $partners->image)}}" class="img-fluid" alt=""></a></div>
+                        @else
+                                <div class="swiper-slide"><a href="{{$partners->link}}"><img src="{{asset('storage/'. $partners->image)}}" class="img-fluid" alt=""></a></div>
+                        @endif
+                    @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-
         </div>
     </section><!-- End Clients Section -->
     <!-- ======= Cta Section ======= -->
@@ -186,9 +216,8 @@
             <hr>
             <div class="text-center">
                 <h3>Grow With Us <br>In Your Career Journey</h3>
-                <a class="cta-btn" href="#">Brow for Job</a>
+                <a class="cta-btn" href="{{route('career')}}">Brow for Job</a>
             </div>
-
         </div>
     </section><!-- End Cta Section -->
 

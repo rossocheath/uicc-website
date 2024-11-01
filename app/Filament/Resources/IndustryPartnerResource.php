@@ -78,7 +78,8 @@ class IndustryPartnerResource extends Resource
                 ->required(),
                 Forms\Components\TextInput::make('link')
                     ->label('Link Url')
-                ->required(),
+                    ->url()
+                    ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Image upload')
                     ->image()

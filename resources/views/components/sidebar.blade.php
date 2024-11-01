@@ -11,11 +11,11 @@
         <h3 class="sidebar-title">{{__('sidebar.categories')}}</h3>
         <div class="sidebar-item categories">
             <ul>
-                <li><a href="#">{{__('sidebar.service')}} <span>({{$service}})</span></a></li>
-                <li><a href="#">{{__('sidebar.industry_partner')}} <span>({{$industry_partner}})</span></a></li>
-                <li><a href="#">{{__('sidebar.career')}} <span>({{$career}})</span></a></li>
-                <li><a href="#">{{__('sidebar.event')}} <span>({{$event}})</span></a></li>
-                <li><a href="#">{{__('sidebar.publication')}} <span>({{$blog}})</span></a></li>
+                <li><a href="{{route('service')}}">{{__('sidebar.service')}} <span>({{$service}})</span></a></li>
+                <li><a href="{{route('industry_partner')}}">{{__('sidebar.industry_partner')}} <span>({{$industry_partner}})</span></a></li>
+                <li><a href="{{route('career')}}">{{__('sidebar.career')}} <span>({{$career}})</span></a></li>
+                <li><a href="{{route('event')}}">{{__('sidebar.event')}} <span>({{$event}})</span></a></li>
+                <li><a href="{{route('publication')}}">{{__('sidebar.publication')}} <span>({{$blog}})</span></a></li>
             </ul>
         </div><!-- End sidebar categories-->
 

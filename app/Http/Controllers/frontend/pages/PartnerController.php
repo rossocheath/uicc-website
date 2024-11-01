@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend\pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\IndustryPartner;
 use Illuminate\Http\Request;
 
 class PartnerController extends Controller
@@ -12,6 +13,7 @@ class PartnerController extends Controller
     {
         $banner = Banner::where('banner_type_id', '6')->get();
         $banner_carousel_count = Banner::where('banner_type_id', '6')->get();
-        return view('frontend.pages.industry_partner',compact('banner','banner_carousel_count'));
+        $partners = IndustryPartner::all();
+        return view('frontend.pages.industry_partner',compact('banner','banner_carousel_count','partners'));
     }
 }

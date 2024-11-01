@@ -144,10 +144,10 @@
 
                         <div class="entry-content">
                             <p>
-                                {{strip_tags($event->description_en)}}
+                                {!! \Illuminate\Support\Str::limit(strip_tags($event->detail_en, '<p>'), 200) !!}
                             </p>
                             <div class="read-more">
-                                <a href="">{{__('event.read_more')}}</a>
+                                <a href="{{route('event-show',$event->id)}}">{{__('event.read_more')}}</a>
                             </div>
                         </div>
 
@@ -175,7 +175,7 @@
 
                         <div class="entry-content">
                             <p>
-                                {{strip_tags($event->description_kh)}}
+                                {!! \Illuminate\Support\Str::limit(strip_tags($event->detail_kh, '<p>'), 200) !!}
                             </p>
                             <div class="read-more">
                                 <a href="{{route('event-show',$event->id)}}">{{__('event.read_more')}}</a>
@@ -200,7 +200,6 @@
                 <x-sidebar></x-sidebar> 
 
             </div>
-
         </div>
     </section><!-- End Blog Section -->
 

@@ -120,67 +120,17 @@
             </div>
 
             <div class="row g-0 industry-partners-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-
+                @foreach ($partners as $partner)
                 <div class="col-lg-3 col-md-4 col-xs-6 ">
                     <div class="client-logo">
-                        <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+                        <a href="{{$partner->link}}">
+                        <img src="{{asset('storage/'. $partner->image)}}" class="img-fluid" alt="">
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
+                @endforeach
             </div>
-
         </div>
-
     </section>
-
-
-
-
-
-
     <!-- ======= End Industry Partner Section ======= -->
-
-
 @endsection
