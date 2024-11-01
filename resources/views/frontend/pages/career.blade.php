@@ -113,407 +113,213 @@
     <div class="container-xxl py-5">
         <hr>
         <div class="container">
-            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Career</h1>
+            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">{{__('career.career')}}</h1>
             <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
                 <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                     <li class="nav-item">
                         <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
                             href="#tab-1">
-                            <h6 class="mt-n1 mb-0">Full Time</h6>
+                            <h6 class="mt-n1 mb-0">{{__('career.all_time')}}</h6>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                            <h6 class="mt-n1 mb-0">Part Time</h6>
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" 
+                        data-bs-toggle="pill" 
+                        href="#tab-2">
+                            <h6 class="mt-n1 mb-0">{{__('career.full_time')}}</h6>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                            <h6 class="mt-n1 mb-0">Internship</h6>
+                            <h6 class="mt-n1 mb-0">{{__('career.part_time')}}</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-4">
+                            <h6 class="mt-n1 mb-0">{{__('career.internship')}}</h6>
                         </a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
+                        @foreach ($all_time as $all)
                         <div class="job-item p-4 mb-4">
                             <div class="row g-4">
+                                @if(Config::get('languages')[App::getLocale()]['display']==='English')
                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-1.jpg"
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $all->logo)}}"
                                         alt="" style="width: 80px; height: 80px;">
                                     <div class="text-start ps-4">
-                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <h5 class="mb-3">{{$all->title_en}}</h5>
                                         <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
-                                            Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$all->location_en}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$all->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
                                     </div>
                                 </div>
+                                @endif
+                                @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $all->logo)}}"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">{{$all->title_kh}}</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$all->location_kh}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$all->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
+                                    </div>
+                                </div>
+                                @endif
                                 <div
                                     class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="/career-detail">Apply Now</a>
+                                        <a class="btn btn-primary" href="{{route('career-show',$all->id)}}">{{__('career.read_apply')}}</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{__('career.date_line')}}: {{ \Carbon\Carbon::parse($all->date_end)->format('F j, Y') }}
+
+                                    </small>
                                 </div>
                             </div>
                         </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-2.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Marketing Manager</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
-                                            Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-3.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Product Designer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
-                                            Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-4.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Creative Director</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-5.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Wordpress Developer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div id="tab-2" class="tab-pane fade show p-0">
+                        @foreach ($full_time as $full)
                         <div class="job-item p-4 mb-4">
                             <div class="row g-4">
+                                @if(Config::get('languages')[App::getLocale()]['display']==='English')
                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-1.jpg"
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $full->logo)}}"
                                         alt="" style="width: 80px; height: 80px;">
                                     <div class="text-start ps-4">
-                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <h5 class="mb-3">{{$full->title_en}}</h5>
                                         <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$full->location_en}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$full->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
                                     </div>
                                 </div>
+                                @endif
+                                @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $full->logo)}}"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">{{$full->title_kh}}</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$full->location_kh}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$full->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
+                                    </div>
+                                </div>
+                                @endif
                                 <div
                                     class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                        <a class="btn btn-primary" href="{{route('career-show',$full->id)}}">{{__('career.read_apply')}}</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{__('career.date_line')}}: {{ \Carbon\Carbon::parse($full->date_end)->format('F j, Y') }}
+
+                                    </small>
                                 </div>
                             </div>
                         </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-2.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Marketing Manager</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-3.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Product Designer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-4.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Creative Director</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-5.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Wordpress Developer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Part Time</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div id="tab-3" class="tab-pane fade show p-0">
+                        @foreach ($part_time as $part)
                         <div class="job-item p-4 mb-4">
                             <div class="row g-4">
+                                @if(Config::get('languages')[App::getLocale()]['display']==='English')
                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-1.jpg"
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $part->logo)}}"
                                         alt="" style="width: 80px; height: 80px;">
                                     <div class="text-start ps-4">
-                                        <h5 class="mb-3">Software Engineer</h5>
+                                        <h5 class="mb-3">{{$part->title_en}}</h5>
                                         <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Internship</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$part->location_en}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$part->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
                                     </div>
                                 </div>
+                                @endif
+                                @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $part->logo)}}"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">{{$part->title_kh}}</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$part->location_kh}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$part->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
+                                    </div>
+                                </div>
+                                @endif
                                 <div
                                     class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                        <a class="btn btn-primary" href="{{route('career-show',$part->id)}}">{{__('career.read_apply')}}</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{__('career.date_line')}}: {{ \Carbon\Carbon::parse($part->date_end)->format('F j, Y') }}
+
+                                    </small>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                    </div>
+                    <div id="tab-4" class="tab-pane fade show p-0">
+                        @foreach ($internship as $internship)
                         <div class="job-item p-4 mb-4">
                             <div class="row g-4">
+                                @if(Config::get('languages')[App::getLocale()]['display']==='English')
                                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-2.jpg"
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $internship->logo)}}"
                                         alt="" style="width: 80px; height: 80px;">
                                     <div class="text-start ps-4">
-                                        <h5 class="mb-3">Marketing Manager</h5>
+                                        <h5 class="mb-3">{{$internship->title_en}}</h5>
                                         <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Internship</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$internship->location_en}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$internship->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
                                     </div>
                                 </div>
+                                @endif
+                                @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('storage/'. $internship->logo)}}"
+                                        alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 class="mb-3">{{$internship->title_kh}}</h5>
+                                        <span class="text-truncate me-3"><i
+                                                class="fa fa-map-marker-alt text-primary me-2"></i>{{$internship->location_kh}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$internship->job_nature}}</span>
+                                        {{-- <span class="text-truncate me-0"><i
+                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span> --}}
+                                    </div>
+                                </div>
+                                @endif
                                 <div
                                     class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                        <a class="btn btn-primary" href="{{route('career-show',$internship->id)}}">{{__('career.read_apply')}}</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{__('career.date_line')}}: {{ \Carbon\Carbon::parse($internship->date_end)->format('F j, Y') }}
+
+                                    </small>
                                 </div>
                             </div>
                         </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-3.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Product Designer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Internship</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-4.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Creative Director</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Internship</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-item p-4 mb-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                    <img class="flex-shrink-0 img-fluid border rounded" src="assets/img/career/com-logo-5.jpg"
-                                        alt="" style="width: 80px; height: 80px;">
-                                    <div class="text-start ps-4">
-                                        <h5 class="mb-3">Wordpress Developer</h5>
-                                        <span class="text-truncate me-3"><i
-                                                class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i
-                                                class="far fa-clock text-primary me-2"></i>Internship</span>
-                                        <span class="text-truncate me-0"><i
-                                                class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                    <div class="d-flex mb-3">
-                                        <a class="btn btn-primary" href="">Apply Now</a>
-                                    </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
-                                        Line: 01 Jan, 2045</small>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ use App\Http\Controllers\frontend\pages\EventController;
 use App\Http\Controllers\frontend\pages\HomeController;
 use App\Http\Controllers\frontend\pages\PartnerController;
 use App\Http\Controllers\frontend\pages\ServiceController;
+use App\Models\Applying;
+use App\View\Components\Applying as ComponentsApplying;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 
@@ -49,12 +51,14 @@ Route::group(['web'], function () { // For index only
     Route::get('/contact_us', [ContactController::class, 'index'])->name('contact_us');
     Route::get('/publication-detail/{id}', [BlogController::class, 'show'])->name('publication-show');
     Route::get('/event-detail/{id}', [EventController::class, 'show'])->name('event-show');
+    Route::get('/career-detail/{id}', [CareerController::class, 'show'])->name('career-show');
+    Route::post('apply', [CareerController::class, 'store'])->name('apply.submit');
 });
 
-//Page Detail
-Route::get('/career-detail', function () {
-    return view('frontend.pages.pages_detail.career_detail');
-});
+// //Page Detail
+// Route::get('/career-detail', function () {
+//     return view('frontend.pages.pages_detail.career_detail');
+// });
 
 
 

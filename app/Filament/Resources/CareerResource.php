@@ -2,29 +2,34 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CareerResource\Pages;
-use App\Models\Career;
+use Carbon\Carbon;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Career;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
 use Filament\Tables\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\SelectColumn;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\CareerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
 
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $navigationGroup = 'Career Site';
 
     protected static ?string $navigationIcon = 'heroicon-o-presentation-chart-line';
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['title_en', 'title_kh', 'job_function_en', 'business_unit_en', 'location_en', 'job_function_kh', 'business_unit_kh', 'location_kh'];
+        return ['title_en', 'title_kh', 'business_unit_en', 'location_en','business_unit_kh', 'location_kh'];
     }
 
     public static function canDelete(Model $record): bool
@@ -82,6 +87,14 @@ class CareerResource extends Resource
                 Forms\Components\DatePicker::make('date_end')
                     ->label('End Date')
                     ->required(),
+                Forms\Components\Select::make('job_nature')
+                    ->options([
+                        'Full Time' => 'Full Time',
+                        'Part Time' => 'Part Time',
+                        'Internship' => 'Internship',
+                    ])
+                    ->rules(['required'])
+                    ->columnSpan('full')
             ])->columns(2),
 
                 Forms\Components\Section::make('English Text')
@@ -89,12 +102,8 @@ class CareerResource extends Resource
                     Forms\Components\TextInput::make('title_en')
                         ->label('English Title')
                     ->required(),
-                    Forms\Components\TextInput::make('job_function_en')
-                        ->label('Job Function English')
-                        ->required(),
                     Forms\Components\TextInput::make('business_unit_en')
-                        ->label('Business Unit English')
-                        ->required(),
+                        ->label('Business Unit English'),
                     Forms\Components\TextInput::make('location_en')
                         ->label('Location English')
                         ->required(),
@@ -108,12 +117,8 @@ class CareerResource extends Resource
                         Forms\Components\TextInput::make('title_kh')
                             ->label('Khmer Title')
                             ->required(),
-                        Forms\Components\TextInput::make('job_function_kh')
-                            ->label('Job Function Khmer')
-                            ->required(),
                         Forms\Components\TextInput::make('business_unit_kh')
-                            ->label('Business Unit Khmer')
-                            ->required(),
+                            ->label('Business Unit Khmer'),
                         Forms\Components\TextInput::make('location_kh')
                             ->label('Location Khmer')
                             ->required(),
@@ -121,6 +126,10 @@ class CareerResource extends Resource
                             ->label('Description Khmer')
                             ->required(),
                     ])->columnSpan(1),
+                Forms\Components\FileUpload::make('logo')
+                ->image()
+                ->required()
+                ->columnSpan('full'),
             ]);
     }
 
@@ -136,12 +145,6 @@ class CareerResource extends Resource
                     ->label('Khmer Title')
                     ->searchable()
                     ->limit(15),
-                Tables\Columns\TextColumn::make('job_function_en')
-                    ->label('Job Function English')
-                    ->limit(15),
-                Tables\Columns\TextColumn::make('job_function_kh')
-                    ->label('Job function Khmer')
-                    ->limit(15),
                 Tables\Columns\TextColumn::make('business_unit_en')
                     ->label('Business Unit English')
                     ->limit(15),
@@ -151,6 +154,12 @@ class CareerResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Owner')
                     ->searchable(),
+                        BadgeColumn::make('date_end')
+                            ->label('End Date')
+                            ->colors([
+                                'success',
+                                'danger' => static fn ($state): bool => $state <= Carbon::now()->toDateString(),
+                            ])
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

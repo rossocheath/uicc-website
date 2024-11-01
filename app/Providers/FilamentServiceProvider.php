@@ -68,8 +68,9 @@ class FilamentServiceProvider extends ServiceProvider
             ]);
         });
         Filament::registerNavigationGroups([
-            'Front Banner',
+            'Career Site',
             'User Site',
+            'Front Banner',
         ]);
     }
 }

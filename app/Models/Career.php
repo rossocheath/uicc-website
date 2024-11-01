@@ -14,14 +14,14 @@ class Career extends Model
         'user_id',
         'title_en',
         'title_kh',
-        'job_function_en',
-        'job_function_kh',
         'business_unit_en',
         'business_unit_kh',
         'location_en',
         'location_kh',
         'description_en',
         'description_kh',
+        'logo',
+        'job_nature',
         'date_start',
         'date_end',
     ];
@@ -31,3 +31,4 @@ class Career extends Model
         return $this->belongsTo(User::class);
     }
 }
+
