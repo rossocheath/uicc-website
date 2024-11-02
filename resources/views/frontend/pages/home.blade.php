@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Home')
+@section('title', __('home.home'))
 
 @section('content')
     <!-- Carousel Start -->
@@ -19,64 +19,12 @@
                         <div class="carousel-item active">
                             <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
                             <div class="carousel-caption">
-                                <div class="container">
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
-                                                
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
-                                                
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
                             </div>
                         </div>
                     @else
                         <div class="carousel-item">
                             <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
                             <div class="carousel-caption">
-                                <div class="container">
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    Learn More
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    Learn More
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
                             </div>
                         </div>
                     @endif
@@ -160,7 +108,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title"><a href="">{{$service->name_en}}</a></h5>
-                                    <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_en, '<p>'), 60) !!}</a>
+                                    <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($service->detail_en, '<p>'), 160) !!}</a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +121,7 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="">{{$service->name_kh}}</a></h5>
-                                        <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($event->detail_kh, '<p>'), 60) !!}</a>
+                                        <a class="card-text">{!! \Illuminate\Support\Str::limit(strip_tags($service->detail_kh, '<p>'), 160) !!}</a>
                                     </div>
                                 </div>
                             </div>
@@ -215,8 +163,8 @@
         <div class="container" data-aos="fade-in">
             <hr>
             <div class="text-center">
-                <h3>Grow With Us <br>In Your Career Journey</h3>
-                <a class="cta-btn" href="{{route('career')}}">Brow for Job</a>
+                <h3>{!!__('home.home_career')!!}</h3>
+                <a class="cta-btn" href="{{route('career')}}">{{__('home.home_btn_career')}}</a>
             </div>
         </div>
     </section><!-- End Cta Section -->

@@ -2,4 +2,6 @@
 
 return [
 
+    'title' => 'About Us'
+
 ];

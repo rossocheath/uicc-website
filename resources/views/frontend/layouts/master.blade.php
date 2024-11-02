@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ config('app.name') }} - @yield('title')</title>
+    <title>{{__('app.name') }} - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="{{__('app.description')}}" name="description">
 
     <!-- Favicon -->
     <link href="{{asset('uicc_logo.svg')}}" rel="icon">
@@ -74,7 +74,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="/" class="nav-item nav-link {{ (request()->is('/')) ? 'active' : '' }}">{{__('nav.home')}}</a>
-                <a href="/service" class="nav-item nav-link {{ (request()->is('service')) ? 'active' : '' }}">{{__('nav.service')}}</a>
+                <a href="/service" class="nav-item nav-link {{ (request()->is('service*')) ? 'active' : '' }}">{{__('nav.service')}}</a>
                 <a href="/industry_partner" class="nav-item nav-link {{ (request()->is('industry_partner')) ? 'active' : '' }}">{{__('nav.partner')}}</a>
                 <a href="/career" class="nav-item nav-link {{ (request()->is('career*')) ? 'active' : '' }}">{{__('nav.career')}}</a>
                 <a href="/event" class="nav-item nav-link {{ (request()->is('event*')) ? 'active' : '' }}">{{__('nav.event')}}</a>

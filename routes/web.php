@@ -52,13 +52,9 @@ Route::group(['web'], function () { // For index only
     Route::get('/publication-detail/{id}', [BlogController::class, 'show'])->name('publication-show');
     Route::get('/event-detail/{id}', [EventController::class, 'show'])->name('event-show');
     Route::get('/career-detail/{id}', [CareerController::class, 'show'])->name('career-show');
+    Route::get('/service-detail/{id}', [ServiceController::class, 'show'])->name('service-show');
     Route::post('apply', [CareerController::class, 'store'])->name('apply.submit');
 });
-
-// //Page Detail
-// Route::get('/career-detail', function () {
-//     return view('frontend.pages.pages_detail.career_detail');
-// });
 
 
 

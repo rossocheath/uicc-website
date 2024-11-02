@@ -1,6 +1,9 @@
 <?php
 
 return [
+
+    'detail' => 'Career Details',
+
     'career' => 'career',
     'all_time' => 'All Time',
     'full_time' => 'Full Time',

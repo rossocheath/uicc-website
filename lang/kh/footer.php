@@ -16,7 +16,7 @@ return [
     'partner' => 'ដៃគូ',
     'career' => 'ការងា',
     'event' => 'ព្រឹត្តិការណ៍',
-    'publication' => 'ការបោះពុម្ពផ្សាយ',
+    'publication' => 'បោះពុម្ព',
     'about' => 'អំពី',
     'contact' => 'ទាក់ទង',
 

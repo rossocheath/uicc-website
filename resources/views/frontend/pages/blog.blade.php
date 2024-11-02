@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('title', __('publication.title'))
 
 @section('content')
     <!-- Carousel Start -->
@@ -20,71 +20,12 @@
                         <div class="carousel-item active">
                             <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
                             <div class="carousel-caption">
-                                <div class="container">
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
-                
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    អានបន្ថែម
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
                             </div>
                         </div>
                     @else
                         <div class="carousel-item">
                             <img class="w-100" src="{{asset('storage/'. $banner->image)}}" alt="Image">
                             <div class="carousel-caption">
-                                <div class="container">
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='English')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_en}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_en)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    Learn More
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if(Config::get('languages')[App::getLocale()]['display']==='ខ្មែរ')
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7 pt-5">
-                                                <h1 class="display-4 text-white mb-3 animated slideInDown">{{$banner->title_kh}}</h1>
-                                                <p class="fs-5 text-white-50 mb-5 animated slideInDown">{{strip_tags($banner->detail_kh)}}</p>
-                                                <a class="btn btn-red py-2 px-3 animated slideInDown" href="">
-                                                    Learn More
-                                                    <div
-                                                        class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                    @endif
-                                </div>
                             </div>
                         </div>
                     @endif

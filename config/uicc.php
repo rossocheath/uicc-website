@@ -48,14 +48,14 @@ return [
         ],
     ],
     'banner_type' => [
-      [
-          'name' => 'Home',
-      ],
+        [
+            'name' => 'Home',
+        ],
         [
             'name' => 'Event',
         ],
         [
-            'name' => 'Blog',
+            'name' => 'Publication',
         ],
         [
             'name' => 'About',

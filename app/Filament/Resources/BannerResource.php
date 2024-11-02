@@ -66,16 +66,16 @@ class BannerResource extends Resource
                         ->label('Banner Type')
                         ->relationship('banner_type', 'name')
                         ->required(),
-                    Forms\Components\Card::make([
-                        Forms\Components\TextInput::make('title_en')
-                        ->label('English Title'),
-                        Forms\Components\TextInput::make('title_kh')
-                            ->label('Khmer Title'),
-                        Forms\Components\RichEditor::make('detail_en')
-                        ->label('English Detail'),
-                        Forms\Components\RichEditor::make('detail_kh')
-                            ->label('Khmer Detail'),
-                    ])->columns(2),
+                    // Forms\Components\Card::make([
+                    //     Forms\Components\TextInput::make('title_en')
+                    //     ->label('English Title'),
+                    //     Forms\Components\TextInput::make('title_kh')
+                    //         ->label('Khmer Title'),
+                    //     Forms\Components\RichEditor::make('detail_en')
+                    //     ->label('English Detail'),
+                    //     Forms\Components\RichEditor::make('detail_kh')
+                    //         ->label('Khmer Detail'),
+                    // ])->columns(2),
                     Forms\Components\Card::make([
                         Forms\Components\FileUpload::make('image')
                             ->label('Image Upload')
@@ -94,10 +94,10 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title_en')
-                    ->formatStateUsing(fn ($record) => $record->title_en ? $record->title_en : '--'),
-                Tables\Columns\TextColumn::make('title_kh')
-                    ->formatStateUsing(fn ($record) => $record->title_kh ? $record->title_kh : '--'),
+                // Tables\Columns\TextColumn::make('title_en')
+                //     ->formatStateUsing(fn ($record) => $record->title_en ? $record->title_en : '--'),
+                // Tables\Columns\TextColumn::make('title_kh')
+                //     ->formatStateUsing(fn ($record) => $record->title_kh ? $record->title_kh : '--'),
                 Tables\Columns\TextColumn::make('banner_type.name')->searchable(),
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\ImageColumn::make('image'),
