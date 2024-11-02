@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\frontend\pages;
 
-use App\Models\Event;
-use App\Models\Banner;
-use App\Models\Service;
-use Illuminate\Http\Request;
-use App\Models\IndustryPartner;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
+use App\Models\Event;
+use App\Models\IndustryPartner;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -18,7 +17,8 @@ class HomeController extends Controller
         $banner = Banner::where('banner_type_id', '1')->get();
         $banner_carousel_count = Banner::where('banner_type_id', '1')->get();
         $partners = IndustryPartner::all();
-        return view('frontend.pages.home', compact('service', 'event','partners',
+
+        return view('frontend.pages.home', compact('service', 'event', 'partners',
             'banner',
             'banner_carousel_count'
         ));

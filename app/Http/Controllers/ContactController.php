@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Contact;
-use Filament\Notifications\Notification;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -13,7 +12,8 @@ class ContactController extends Controller
     {
         $banner = Banner::where('banner_type_id', '8')->get();
         $banner_carousel_count = Banner::where('banner_type_id', '8')->get();
-        return view('frontend.pages.contact_us',compact('banner','banner_carousel_count'));
+
+        return view('frontend.pages.contact_us', compact('banner', 'banner_carousel_count'));
     }
 
     /**

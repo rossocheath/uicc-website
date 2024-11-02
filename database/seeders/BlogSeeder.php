@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Blog;
-use App\Models\Post;
 use Illuminate\Database\Seeder;
 
 class BlogSeeder extends Seeder

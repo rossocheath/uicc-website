@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\BannerType;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class BannerTypeSeeder extends Seeder
 {

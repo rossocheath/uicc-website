@@ -2,25 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use App\Models\Career;
-use App\Models\Applying;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Model;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\BadgeColumn;
-use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ApplyingResource\Pages;
+use App\Models\Applying;
+use App\Models\Career;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ApplyingResource\RelationManagers;
 
 class ApplyingResource extends Resource
 {
@@ -74,7 +72,6 @@ class ApplyingResource extends Resource
         return auth()->user()->role->name === 'Super Admin';
     }
 
-
     public static function form(Form $form): Form
     {
         return $form
@@ -98,7 +95,7 @@ class ApplyingResource extends Resource
                     ->visibility('local'),
                     Textarea::make('cover_letter')
                     ->columnSpanFull(),
-                ])->columns(2)
+                ])->columns(2),
             ]);
     }
 
@@ -129,14 +126,14 @@ class ApplyingResource extends Resource
                 Tables\Actions\RestoreBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -145,8 +142,8 @@ class ApplyingResource extends Resource
             'view' => Pages\ViewApplying::route('/{record}'),
             'edit' => Pages\EditApplying::route('/{record}/edit'),
         ];
-    }    
-    
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()

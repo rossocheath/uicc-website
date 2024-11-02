@@ -18,7 +18,7 @@ return [
     'published_on' => 'Published On',
     'job_nature' => 'Job Nature',
     'location' => 'Location',
-    
+
     'apply_for_the_job' => 'Apply For The Job',
     'name' => 'Your Name',
     'email' => 'Your Email',

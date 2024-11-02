@@ -2,6 +2,6 @@
 
 return [
 
-    'title' => 'About Us'
+    'title' => 'About Us',
 
 ];

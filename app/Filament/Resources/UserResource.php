@@ -64,7 +64,7 @@ class UserResource extends Resource
                         ->relationship('role', 'name')
                         ->required(),
                     Forms\Components\TextInput::make('password')
-                        ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                        ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                         ->autocomplete(false)
                         ->password()
                         ->required()

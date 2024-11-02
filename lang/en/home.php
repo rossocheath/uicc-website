@@ -12,4 +12,3 @@ return [
     'home_career' => 'Grow With Us <br>In Your Career Journey',
     'home_btn_career' => 'Brow for Job',
 ];
-

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\frontend\pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
-use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
@@ -12,6 +11,7 @@ class AboutController extends Controller
     {
         $banner = Banner::where('banner_type_id', '4')->get();
         $banner_carousel_count = Banner::where('banner_type_id', '4')->get();
-        return view('frontend.pages.about_us',compact('banner','banner_carousel_count'));
+
+        return view('frontend.pages.about_us', compact('banner', 'banner_carousel_count'));
     }
 }

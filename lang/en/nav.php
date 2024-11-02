@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'location' =>'Russian Federation Boulevard, Toul Kork, Phnom Penh',
+    'location' => 'Russian Federation Boulevard, Toul Kork, Phnom Penh',
     'email' => 'uicc.info@rupp.edu.kh',
     'follow' => 'Follow us:',
 

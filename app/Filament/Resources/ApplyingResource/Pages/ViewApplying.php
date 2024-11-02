@@ -16,9 +16,10 @@ class ViewApplying extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
     public function mount($record): void
     {
         parent::mount($record);
-            $this->record->update(['status' => 'READ']);
+        $this->record->update(['status' => 'READ']);
     }
 }

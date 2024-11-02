@@ -1,11 +1,12 @@
 <?php
+
 return [
-    'en' =>[
+    'en' => [
         'display' => 'English',
-        'flag-icon' => 'us'
+        'flag-icon' => 'us',
     ],
-    'kh' =>[
+    'kh' => [
         'display' => 'ខ្មែរ',
-        'flag-icon' => 'kh'
+        'flag-icon' => 'kh',
     ],
 ];

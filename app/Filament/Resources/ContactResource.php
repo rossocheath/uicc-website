@@ -5,13 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ContactResource\Pages;
 use App\Models\Contact;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -96,8 +94,8 @@ class ContactResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('phone')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
-//                TextColumn::make('status')->sortable()->label(__('status'))
-//                    ->formatStateUsing(fn (string $state): string => __("{$state}")),
+                //                TextColumn::make('status')->sortable()->label(__('status'))
+                //                    ->formatStateUsing(fn (string $state): string => __("{$state}")),
                 BadgeColumn::make('status')
                     ->colors([
                         'warning' => 'NEW',

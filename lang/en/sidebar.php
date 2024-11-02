@@ -2,7 +2,7 @@
 
 return [
     'search' => 'Search',
-    'categories'=>'Categories',
+    'categories' => 'Categories',
     'recent_publication' => 'Recent Publication',
     'recent_event' => 'Recent Event',
 

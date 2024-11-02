@@ -25,12 +25,12 @@ return new class extends Migration
             $table->longText('description_en');
             $table->longText('description_kh');
             $table->string('logo');
-            $table->enum('job_nature',['Full Time','Part Time','Internship'])->default('Full Time');
+            $table->enum('job_nature', ['Full Time', 'Part Time', 'Internship'])->default('Full Time');
             $table->date('date_start');
             $table->date('date_end');
             $table->softDeletes();
             $table->timestamps();
-        }); 
+        });
     }
 
     /**

@@ -17,7 +17,7 @@ class Applying extends Model
         'file',
         'cover_letter',
         'career_id',
-        'status'
+        'status',
     ];
 
     public function career()

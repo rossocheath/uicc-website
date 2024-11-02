@@ -7,5 +7,5 @@ return [
     'Empty_Event' => 'No Event',
     'read_more' => 'Read More',
 
-    'detail'=>'Event Details',
+    'detail' => 'Event Details',
 ];

@@ -6,7 +6,7 @@ return [
     'phone' => '+012 345 67890',
     'email' => 'uicc.info@rupp.edu.kh',
 
-    'connect with UICC on social media' =>'Connect With UICC on Social Media',
+    'connect with UICC on social media' => 'Connect With UICC on Social Media',
 
     'useful link' => 'Useful Link',
 
@@ -19,5 +19,5 @@ return [
     'about' => 'About',
     'contact' => 'Contact',
 
-    'copyright' => 'Copyright ©' . ' ' . date('Y') . ' ' . 'University-Industry Cooperation Center. All Rights Reserved.'
+    'copyright' => 'Copyright ©'.' '.date('Y').' '.'University-Industry Cooperation Center. All Rights Reserved.',
 ];

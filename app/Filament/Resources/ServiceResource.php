@@ -94,24 +94,24 @@ class ServiceResource extends Resource
                     ->enableOpen()
                     ->required()
                     ->columnSpan('full'),
-//                Forms\Components\Card::make([
-//                    Forms\Components\Repeater::make('serviceDetail')
-//                        ->label('Service Detail')
-//                        ->relationship()
-//                        ->schema([
-//                            Forms\Components\TextInput::make('detail_en')
-//                                ->label('English Detail')
-//                                ->columnSpan(1)
-//                                ->required(),
-//                            Forms\Components\TextInput::make('detail_kh')
-//                                ->label('Khmer Detail')
-//                                ->columnSpan(1)
-//                                ->required(),
-//                        ])
-//                        ->defaultItems(1)
-//                        ->columns(2)
-//                        ->columnSpan('full'),
-//                ]),
+                //                Forms\Components\Card::make([
+                //                    Forms\Components\Repeater::make('serviceDetail')
+                //                        ->label('Service Detail')
+                //                        ->relationship()
+                //                        ->schema([
+                //                            Forms\Components\TextInput::make('detail_en')
+                //                                ->label('English Detail')
+                //                                ->columnSpan(1)
+                //                                ->required(),
+                //                            Forms\Components\TextInput::make('detail_kh')
+                //                                ->label('Khmer Detail')
+                //                                ->columnSpan(1)
+                //                                ->required(),
+                //                        ])
+                //                        ->defaultItems(1)
+                //                        ->columns(2)
+                //                        ->columnSpan('full'),
+                //                ]),
 
             ]);
     }

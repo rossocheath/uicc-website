@@ -9,7 +9,6 @@ use Filament\Navigation\UserMenuItem;
 use Illuminate\Support\ServiceProvider;
 use JeffGreco13\FilamentBreezy\Pages\MyProfile;
 use pxlrbt\FilamentEnvironmentIndicator\FilamentEnvironmentIndicator;
-use Illuminate\Contracts\View\View;
 
 //use pxlrbt\FilamentEnvironmentIndicator\FilamentEnvironmentIndicator;
 

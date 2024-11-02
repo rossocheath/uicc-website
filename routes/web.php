@@ -8,9 +8,6 @@ use App\Http\Controllers\frontend\pages\EventController;
 use App\Http\Controllers\frontend\pages\HomeController;
 use App\Http\Controllers\frontend\pages\PartnerController;
 use App\Http\Controllers\frontend\pages\ServiceController;
-use App\Models\Applying;
-use App\View\Components\Applying as ComponentsApplying;
-use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 // Start
 Route::get('/dashboard', function () { // Route Dashboard
-    return view('dashboard');
+return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 //End
 Route::get('/login', function () {
     return redirect()->route('filament.auth.login');
@@ -41,7 +38,7 @@ Route::group(['web'], function () {
 });
 
 Route::group(['web'], function () { // For index only
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/service', [ServiceController::class, 'index'])->name('service');
     Route::get('/industry_partner', [PartnerController::class, 'index'])->name('industry_partner');
     Route::get('/career', [CareerController::class, 'index'])->name('career');
@@ -55,7 +52,3 @@ Route::group(['web'], function () { // For index only
     Route::get('/service-detail/{id}', [ServiceController::class, 'show'])->name('service-show');
     Route::post('apply', [CareerController::class, 'store'])->name('apply.submit');
 });
-
-
-
-

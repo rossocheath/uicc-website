@@ -86,13 +86,13 @@ class MyProfile extends Page
             TextInput::make($this->loginColumn)->unique(config('filament-breezy.user_model'), ignorable: $this->user)
                 ->label('Email Address')
                 ->disabled(),
-//            DatePicker::make('birthday')
-//                ->required(),
-//            Select::make('gender')
-//                ->options([
-//                    false => 'Male',
-//                    true => 'Female',
-//                ]),
+            //            DatePicker::make('birthday')
+            //                ->required(),
+            //            Select::make('gender')
+            //                ->options([
+            //                    false => 'Male',
+            //                    true => 'Female',
+            //                ]),
         ];
     }
 

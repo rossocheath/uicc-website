@@ -33,18 +33,19 @@ class Sidebar extends Component
         $career = Career::count();
         $event = Event::count();
         $blog = Blog::count();
-        $recentBlogs = Blog::orderBy('created_at','Desc')->take(5)->get();
-        $recentEvents = Event::orderBy('created_at','Desc')->take(5)->get();
+        $recentBlogs = Blog::orderBy('created_at', 'Desc')->take(5)->get();
+        $recentEvents = Event::orderBy('created_at', 'Desc')->take(5)->get();
+
         return view('components.sidebar',
-    [
-        'service' => $service,
-        'industry_partner' =>$industry_partner,
-        'career' =>$career,
-        'event' =>$event,
-        'blog' => $blog,
-        'recentBlogs' => $recentBlogs,
-        'recentEvents' => $recentEvents,
-    ]
-    );
+            [
+                'service' => $service,
+                'industry_partner' => $industry_partner,
+                'career' => $career,
+                'event' => $event,
+                'blog' => $blog,
+                'recentBlogs' => $recentBlogs,
+                'recentEvents' => $recentEvents,
+            ]
+        );
     }
 }

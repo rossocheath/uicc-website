@@ -3,7 +3,7 @@
 return [
 
     'search' => 'ស្វែងរក',
-    'categories'=>'ប្រភេទ',
+    'categories' => 'ប្រភេទ',
     'recent_publication' => 'ការបោះពុម្ពផ្សាយថ្មីៗ',
     'recent_event' => 'ព្រឹត្តិការណ៍ថ្មីៗ',
 

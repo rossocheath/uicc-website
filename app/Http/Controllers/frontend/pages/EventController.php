@@ -5,7 +5,6 @@ namespace App\Http\Controllers\frontend\pages;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Event;
-use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
@@ -14,10 +13,14 @@ class EventController extends Controller
         $banner = Banner::where('banner_type_id', '2')->get();
         $banner_carousel_count = Banner::where('banner_type_id', '2')->get();
         $events = Event::orderBy('id', 'desc')->paginate(4);
-        return view('frontend.pages.event',compact('banner','banner_carousel_count','events'));
+
+        return view('frontend.pages.event', compact('banner', 'banner_carousel_count', 'events'));
     }
-    public function show($id){
+
+    public function show($id)
+    {
         $events = Event::findOrFail($id);
+
         return view('frontend.pages.pages_detail.event_detail', compact('events'));
     }
 }
